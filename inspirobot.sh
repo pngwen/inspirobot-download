@@ -21,17 +21,10 @@ function inspiration {
     wget -q -O - $oldest https://inspirobot.me/api?generate=true
 }
 
-#if we already have max images, just replace the oldest
-if [ -f inspirobot-download-$MAX.jpg ]; then
-    oldest=`ls -t inspirobot-download-*.jpg 2> /dev/null| tail -1`
-    wget -q -O $oldest `inspiration`
-    exit
-else
-    #download MAX images
-    for i in `seq $MAX`
-    do
-        url=`wget -q -O - $oldest https://inspirobot.me/api?generate=true`
-        wget -q -O inspirobot-download-$i.jpg `inspiration`
-	sleep 5
-    done
-fi
+#download MAX images
+for i in `seq $MAX`
+do
+    url=`wget -q -O - $oldest https://inspirobot.me/api?generate=true`
+    wget -q -O inspirobot-download-$i.jpg `inspiration`
+    sleep 5
+done

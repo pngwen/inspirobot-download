@@ -1,10 +1,9 @@
 # Inspirobot Download
 
 This program is a simple shell script which downloads and maintains a
-rotating cache of inspirobot images.  Out of the box it will download
+rotating cache of inspirobot images. Out of the box, it will donwload 
 10 images (with 5 seconds between each download) to the current
-directory.  Subsequent runs will replace the oldest image matching
-the pattern
+directory. Subsequent runs overwrite the 10 images.
 
    inspirobot-download-#.jpg
    
